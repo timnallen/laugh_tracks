@@ -1,7 +1,13 @@
 <section class="comedians">
   <%= @comedians.each do |comedian| %>
-    <% comedian.name %>
-    <% comedian.age %>
-    <% comedian.city %>
+    <section id="comedian-<%= comedian.id %>">
+      <% comedian.name %>
+      <% comedian.age %>
+      <% comedian.city %>
+      <%= comedian.specials.each do |special| %>
+        <% special.name %>
+        <% special.runtime %>
+      <% end %>
+    </section>
   <% end %>
 </section>
