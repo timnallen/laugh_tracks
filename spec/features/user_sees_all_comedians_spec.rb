@@ -16,6 +16,7 @@ describe 'As A User' do
         expect(page).to have_content(@john.age)
         expect(page).to have_content(@john.city)
         expect(page).to have_css("img[src*='#{@john.img_url}']")
+        expect(page).to have_content("Total number of specials: 0")
         expect(page).to have_content(@jerry.name)
         expect(page).to have_content(@jerry.age)
         expect(page).to have_content(@jerry.city)
@@ -23,7 +24,7 @@ describe 'As A User' do
       end
     end
 
-    it 'shows me all comedians specials and their runtimes' do
+    it 'shows me all comedians specials and their runtimes and count' do
       new_in_town = @john.specials.create(name: "New In Town", runtime: 58)
       comeback = @john.specials.create(name: "Comeback Kid", runtime: 62)
       seinfeld = @jerry.specials.create(name: "Seinfeld", runtime: 30)
@@ -36,6 +37,7 @@ describe 'As A User' do
         expect(page).to have_content(new_in_town.runtime)
         expect(page).to have_content(comeback.name)
         expect(page).to have_content(comeback.runtime)
+        expect(page).to have_content("Total number of specials: 2")
       end
 
       within("#comedian-#{@jerry.id}") do
@@ -43,6 +45,7 @@ describe 'As A User' do
         expect(page).to have_content(seinfeld.runtime)
         expect(page).to have_content(whats_the_deal.name)
         expect(page).to have_content(whats_the_deal.runtime)
+        expect(page).to have_content("Total number of specials: 2")
       end
     end
 

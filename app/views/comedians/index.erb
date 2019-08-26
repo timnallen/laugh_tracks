@@ -5,6 +5,7 @@
       <%= comedian.name %>
       <%= comedian.age %>
       <%= comedian.city %>
+      <%= "Total number of specials: #{comedian.specials.count}" %>
       <% comedian.specials.each do |special| %>
         <%= special.name %>
         <%= special.runtime %>
