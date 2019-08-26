@@ -1,12 +1,13 @@
 <section class="comedians">
-  <%= @comedians.each do |comedian| %>
+  <% @comedians.each do |comedian| %>
     <section id="comedian-<%= comedian.id %>">
-      <% comedian.name %>
-      <% comedian.age %>
-      <% comedian.city %>
-      <%= comedian.specials.each do |special| %>
-        <% special.name %>
-        <% special.runtime %>
+      <%= image_tag("#{comedian.img_url}", :alt => "#{comedian.name}") %>
+      <%= comedian.name %>
+      <%= comedian.age %>
+      <%= comedian.city %>
+      <% comedian.specials.each do |special| %>
+        <%= special.name %>
+        <%= special.runtime %>
       <% end %>
     </section>
   <% end %>
