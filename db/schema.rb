@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190826152725) do
+ActiveRecord::Schema.define(version: 20190827155810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20190826152725) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "img_url"
+    t.string "img_url", default: "https://comps.gograph.com/ggb/66561281"
     t.index ["age"], name: "index_comedians_on_age"
   end
 
