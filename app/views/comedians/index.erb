@@ -1,5 +1,11 @@
+<section id="statistics">
+  <h1>Statistics</h1>
+  <%= "Average Age: #{facade.average_age}" %>
+  <%= "List of Cities: #{facade.cities}" %>
+</section>
+
 <section class="comedians">
-  <% @comedians.each do |comedian| %>
+  <% facade.comedians.each do |comedian| %>
     <section id="comedian-<%= comedian.id %>">
       <%= image_tag("#{comedian.img_url}", :alt => "#{comedian.name}") %>
       <%= comedian.name %>

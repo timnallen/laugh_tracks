@@ -54,5 +54,29 @@ describe 'As A User' do
 
       expect(page).to_not have_content(@jerry.name)
     end
+
+    it 'shows me statistics for average age and unique cities' do
+      visit '/comedians'
+
+      within('#statistics') do
+        expect(page).to have_content('Statistics')
+        expect(page).to have_content('Average Age: 47')
+        expect(page).to have_content('List of Cities: ')
+        expect(page).to have_content('Chicago')
+        expect(page).to have_content('New York City')
+      end
+    end
+
+    it 'shows me statistics for average age and unique cities correctly by filter' do
+      visit '/comedians?age=34'
+
+      within('#statistics') do
+        expect(page).to have_content('Statistics')
+        expect(page).to have_content('Average Age: 34')
+        expect(page).to have_content('List of Cities: ')
+        expect(page).to have_content('Chicago')
+        expect(page).to_not have_content('New York City')
+      end
+    end
   end
 end

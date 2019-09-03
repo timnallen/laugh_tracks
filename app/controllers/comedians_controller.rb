@@ -1,6 +1,6 @@
 class ComediansController < ApplicationController
   def index
-    @comedians = Comedian.filter_by_age(params["age"])
+    render locals: {facade: ComediansFacade.new(Comedian.filter_by_age(params["age"]))}
   end
 
   def new
