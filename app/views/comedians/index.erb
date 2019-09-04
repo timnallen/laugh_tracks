@@ -8,7 +8,7 @@
   <% facade.comedians.each do |comedian| %>
     <section id="comedian-<%= comedian.id %>">
       <%= image_tag("#{comedian.img_url}", :alt => "#{comedian.name}") %>
-      <%= comedian.name %>
+      <%= link_to comedian.name, comedian_path(comedian) %>
       <%= comedian.age %>
       <%= comedian.city %>
       <%= "Total number of specials: #{comedian.specials.count}" %>

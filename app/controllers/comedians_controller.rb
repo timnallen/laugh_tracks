@@ -3,6 +3,10 @@ class ComediansController < ApplicationController
     render locals: {facade: ComediansFacade.new(Comedian.filter_by_age(params["age"]))}
   end
 
+  def show
+    @comedian = Comedian.find(params[:id])
+  end
+
   def new
     @comedian = Comedian.new
   end
