@@ -2,13 +2,15 @@
   <h1>Statistics</h1>
   <%= "Average Age: #{facade.average_age}" %>
   <%= "List of Cities: #{facade.cities}" %>
+  <%= "Total number of specials: #{facade.specials_count}" %>
+  <%= "Average Run Time: #{facade.avg_run_time}" %>
 </section>
 
 <section class="comedians">
   <% facade.comedians.each do |comedian| %>
     <section id="comedian-<%= comedian.id %>">
       <%= image_tag("#{comedian.img_url}", :alt => "#{comedian.name}") %>
-      <%= comedian.name %>
+      <%= link_to comedian.name, comedian_path(comedian) %>
       <%= comedian.age %>
       <%= comedian.city %>
       <%= "Total number of specials: #{comedian.specials.count}" %>

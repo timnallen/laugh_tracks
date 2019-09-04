@@ -13,6 +13,14 @@ class ComediansFacade
     Comedian.list_of_cities(comedian_ids)
   end
 
+  def specials_count
+    Special.specials_count(comedian_ids)
+  end
+
+  def avg_run_time
+    Special.avg_run_time(comedian_ids)
+  end
+
   private
 
   def comedian_ids
